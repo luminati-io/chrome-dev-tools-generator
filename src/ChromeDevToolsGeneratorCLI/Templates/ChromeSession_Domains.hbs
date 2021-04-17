@@ -1,7 +1,7 @@
 ﻿namespace {{rootNamespace}}
 {
     using System;
-    
+
     public partial class ChromeSession
     {
 {{#each domains}}
@@ -23,7 +23,7 @@
         {
             get { return m_{{dehumanize Name}}.Value; }
         }
-        
+
 {{/each}}
     }
 }
