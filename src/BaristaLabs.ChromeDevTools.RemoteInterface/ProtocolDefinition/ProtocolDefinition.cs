@@ -11,13 +11,6 @@
             Domains = new Collection<DomainDefinition>();
         }
 
-        [JsonProperty(PropertyName = "chromeVersion", Required = Required.Always)]
-        public ChromeVersion ChromeVersion
-        {
-            get;
-            set;
-        }
-
         [JsonProperty(PropertyName = "version", Required = Required.Always)]
         public Version Version
         {
