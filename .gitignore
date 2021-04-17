@@ -262,4 +262,3 @@ __pycache__/
 
 #other stuffs
 src/ChromeDevToolsGeneratorCLI/OutputProtocol/
-src/ChromeDevToolsGeneratorCLI/chrome-debugging-protocol.json
