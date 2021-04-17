@@ -2,7 +2,7 @@
   "include": [
     {
       "templatePath": "project.hbs",
-      "outputPath": "BaristaLabs.ChromeDevTools.Runtime.csproj"
+      "outputPath": "CDP.csproj"
     },
     {
       "templatePath": "ChromeSession.hbs",
@@ -37,6 +37,6 @@
       "outputPath": "IEvent.cs"
     }
   ],
-  "rootNamespace": "BaristaLabs.ChromeDevTools.Runtime",
+  "rootNamespace": "CDP",
   "runtimeVersion":  ""
 }
