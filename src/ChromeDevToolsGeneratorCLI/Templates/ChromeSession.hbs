@@ -51,7 +51,7 @@
         /// </summary>
         /// <param name="endpointAddress"></param>
         public ChromeSession(string endpointAddress)
-            : this(null, endpointAddress)
+            : this(false, endpointAddress)
         {
         }
 
@@ -81,7 +81,7 @@
                 EnableAutoSendPing = false
             };
             m_sessionSocket.MessageReceived += Ws_MessageReceived;
-            m_sessionSocket.Error += Ws_Error;
+            // m_sessionSocket.Error += Ws_Error;
             m_sessionSocket.Opened += Ws_Opened;
         }
 
@@ -310,11 +310,14 @@
             m_openEvent.Set();
         }
 
+	// XXX dmitriie: fix SuperSocket
+	/*
         private void Ws_Error(object sender, SuperSocket.ClientEngine.ErrorEventArgs e)
         {
             LogError("Error: {exception}", e.Exception);
             throw e.Exception;
         }
+	*/
 
         private void Ws_MessageReceived(object sender, MessageReceivedEventArgs e)
         {
@@ -342,7 +345,7 @@
                     if (m_sessionSocket != null)
                     {
                         m_sessionSocket.Opened -= Ws_Opened;
-                        m_sessionSocket.Error -= Ws_Error;
+                        // m_sessionSocket.Error -= Ws_Error;
                         m_sessionSocket.MessageReceived -= Ws_MessageReceived;
                         m_sessionSocket.Dispose();
                         m_sessionSocket = null;
