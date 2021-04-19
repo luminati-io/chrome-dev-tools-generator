@@ -1,6 +1,5 @@
 ﻿namespace {{rootNamespace}}
 {
-    using Microsoft.Extensions.Logging;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
     using System;
@@ -17,7 +16,8 @@
     public partial class ChromeSession : IDisposable
     {
         private readonly string m_endpointAddress;
-        private readonly ILogger<ChromeSession> m_logger;
+	// XXX dmitriie: change to zerr
+        private readonly bool m_logger;
         private readonly ConcurrentDictionary<string, ConcurrentBag<Action<object>>> m_eventHandlers = new ConcurrentDictionary<string, ConcurrentBag<Action<object>>>();
         private readonly ConcurrentDictionary<Type, string> m_eventTypeMap = new ConcurrentDictionary<Type, string>();
 
@@ -60,7 +60,7 @@
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="endpointAddress"></param>
-        public ChromeSession(ILogger<ChromeSession> logger, string endpointAddress)
+        public ChromeSession(bool logger, string endpointAddress)
             : this()
         {
             if (String.IsNullOrWhiteSpace(endpointAddress))
@@ -292,7 +292,7 @@
             if (m_logger == null)
                 return;
 
-            m_logger.LogTrace(message, args);
+            // m_logger.LogTrace(message, args);
         }
 
         private void LogError(string message, params object[] args)
@@ -300,7 +300,7 @@
             if (m_logger == null)
                 return;
 
-            m_logger.LogError(message, args);
+            // m_logger.LogError(message, args);
         }
 
 
@@ -389,3 +389,4 @@
         #endregion
     }
 }
+
