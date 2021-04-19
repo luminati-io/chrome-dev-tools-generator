@@ -100,8 +100,8 @@
                 {
                     int.TryParse(frontPaddingObj.ToString(), out frontPadding);
                 }
-                    
-                str = Utility.ReplaceLineEndings(str, Environment.NewLine + new StringBuilder(4 * frontPadding).Insert(0, "    ", frontPadding) + "/// ");
+
+                str = Utility.ReplaceLineEndings(str, "\n" + new StringBuilder(4 * frontPadding).Insert(0, "    ", frontPadding) + "/// ");
 
                 writer.WriteSafeString(str);
             });
